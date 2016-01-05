@@ -2,7 +2,7 @@
 
 angular directives for twitter bootstrap forms
 
-# requirements
+## requirements
 
 - angular@^1.4
 - angular-messages@^1.4
@@ -10,11 +10,11 @@ angular directives for twitter bootstrap forms
 - font-awesome@^4
 - browserify
 
-# example
+## example
 
 Instead of writing the above code:
 
-```
+```html
 <div class="form-group has-feedback" ng-class="{'has-success':form.field.$valid, 'has-error':form.field.$invalid && (form.$submitted || form.field.$dirty)}">
 	<label class="control-label">Field</label>
 	<input type="text" ng-model="model.field" name="field" class="form-control" required ng-minlength="3" aria-describedby="inputError2Status">
@@ -32,16 +32,18 @@ Instead of writing the above code:
 
 just write:
 
-```
+```html
 <div class="form-group">
 	<label class="control-label">Field</label>
 	<input type="text" ng-model="model.field" name="field" class="form-control" required abf-show-feedback ng-minlength="3">
 </div>
 ```
 
-# Installation
+Check the example at ```docs/example/index.html```.
 
-```
+## Installation
+
+```javascript
 var abf = require('angular-bootstrap-forms');
 
 angular.module('myApp', [
@@ -49,7 +51,7 @@ angular.module('myApp', [
 ]);
 ```
 
-# Roadmap to 1.0
+## Roadmap to 1.0
 
 - [ ] Unit tests using karma
 - [ ] input[type=text] form-control
