@@ -2,6 +2,8 @@
 
 angular directives for twitter bootstrap forms
 
+[![NPM](https://nodei.co/npm/angular-bootstrap-forms.png?compact=true)](https://nodei.co/npm/angular-bootstrap-forms/)
+
 ## requirements
 
 - angular@^1.4
