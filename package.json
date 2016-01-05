@@ -5,7 +5,8 @@
   "main": "src/angular-bootstrap-forms.js",
   "scripts": {
     "test": "npm test",
-    "example": "beefy docs/example/app.js --live"
+    "example": "beefy docs/example/app.js --live",
+    "lint": "eslint src/**/*.js"
   },
   "repository": {
     "type": "git",
