@@ -1,5 +1,7 @@
 'use strict';
 
+import {forOwn} from '../utils/for-own.js';
+
 function normalizeAttrName(attr) {
 	return attr.replace(/^(x[\:\-_]|data[\:\-_]|ng[\:\-_])/i, '');
 }
@@ -8,9 +10,7 @@ function normalizeAttrName(attr) {
 export function FeedbackMessage(AbfFeedbackMessages) {
 	let messages = '';
 
-	Object.keys(AbfFeedbackMessages).forEach((messageType) => {
-		let messageValue = AbfFeedbackMessages[messageType];
-
+	forOwn(AbfFeedbackMessages, (messageType, messageValue) => {
 		messages += `<small ng-message="${messageType}">
 			${messageValue} <span ng-bind="vm.${messageType}"></span>
 		</small>`;
