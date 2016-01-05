@@ -1,0 +1,49 @@
+{
+  "name": "angular-bootstrap-forms",
+  "version": "0.1.0",
+  "description": "angular directives for twitter bootstrap forms",
+  "main": "src/angular-bootstrap-forms.js",
+  "scripts": {
+    "test": "npm test",
+    "example": "beefy docs/example/app.js --live"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/assisrafael/angular-bootstrap-forms.git"
+  },
+  "keywords": [
+    "angular",
+    "twitter",
+    "bootstrap",
+    "forms"
+  ],
+  "author": "Igor Rafael <igor.rafael@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/assisrafael/angular-bootstrap-forms/issues"
+  },
+  "homepage": "https://github.com/assisrafael/angular-bootstrap-forms#readme",
+  "devDependencies": {
+    "angular": "^1.4.8",
+    "angular-messages": "^1.4.8",
+    "bootstrap": "^3.3.6",
+    "browserify": "^12.0.1",
+    "font-awesome": "^4.5.0"
+  },
+  "dependencies": {
+    "babel-preset-es2015": "^6.3.13",
+    "babelify": "^7.2.0"
+  },
+  "browserify": {
+    "transform": [
+      [
+        "babelify",
+        {
+          "presets": [
+            "es2015"
+          ]
+        }
+      ]
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Angular forms</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+		<link rel="stylesheet" href="../../node_modules/font-awesome/css/font-awesome.css">
+		<style media="screen">
+			.form-control {
+				border-radius: 0px;
+			}
+			.help-block {
+				background-color: #a94442;
+				color: white !important;
+				padding: 0px 5px;
+				margin: 0;
+			}
+			.help-block small {
+				display: block;
+			}
+			.form-group {
+				margin-bottom: 20px;
+			}
+			.form-group.has-error {
+				margin-bottom: 3px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container-fluid" ng-controller="MainController as vm">
+			<h1>My test form</h1>
+				<form name="testForm" abf-submit="vm.submit()" novalidate>
+					<pre>{{testForm.$submitted|json}}</pre>
+					<div class="row">
+						<div class="col-sm-12">
+							<div class="form-group has-feedback" ng-class="{'has-success':testForm.field0.$valid, 'has-error':testForm.field0.$invalid && (testForm.$submitted || testForm.field0.$dirty)}">
+								<label class="control-label">Field 0</label>
+								<input type="text" ng-model="vm.model.field0" name="field0" class="form-control" required ng-minlength="3" aria-describedby="inputError2Status">
+								<span class="form-control-feedback" aria-hidden="true">
+									<i class="fa" ng-class="testForm.field0.$invalid && testForm.field0.$dirty ? 'fa-exclamation-triangle':'fa-check'"></i>
+								</span>
+								<span id="inputError2Status" class="sr-only">(error)</span>
+								<div class="help-block" ng-if="testForm.field0.$dirty || testForm.$submitted" ng-messages="testForm.field0.$error" role="alert">
+									<small ng-message="required">This field cannot be blank</small>
+									<small ng-message="minlength">Minimum length:</small>
+									<small ng-message="email">Invalid email address</small>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Field 1</label>
+								<input type="text" ng-model="vm.model.field1" name="field1" class="form-control" required abf-show-feedback ng-minlength="3">
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Field 2</label>
+								<select class="form-control" ng-model="vm.model.field2" name="field2" abf-show-feedback ng-required="true">
+									<option></option>
+									<option>1</option>
+									<option>2</option>
+									<option>3</option>
+									<option>4</option>
+									<option>5</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Field 3</label>
+								<p>
+									<label class="checkbox-inline">
+										<input type="checkbox" ng-model="vm.model.field3.option1" value="option1"> 1
+									</label>
+									<label class="checkbox-inline">
+										<input type="checkbox" ng-model="vm.model.field3.option2" value="option2"> 2
+									</label>
+									<label class="checkbox-inline">
+										<input type="checkbox" ng-model="vm.model.field3.option3" value="option3"> 3
+									</label>
+								</p>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Field 4</label>
+								<input type="email" ng-model="vm.model.field4" name="field4" class="form-control" abf-show-feedback>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Field 5</label>
+								<div class="radio">
+									<label>
+										<input type="radio" ng-model="vm.model.field5" name="field5" value="option1" checked>
+										Option one is this and that&mdash;be sure to include why it's great
+									</label>
+								</div>
+								<div class="radio">
+									<label>
+										<input type="radio" ng-model="vm.model.field5" name="field5" value="option2">
+										Option two can be something else and selecting it will deselect option one
+									</label>
+								</div>
+								<div class="radio disabled">
+									<label>
+										<input type="radio" ng-model="vm.model.field5" name="field5" value="option3" disabled>
+										Option three is disabled
+									</label>
+								</div>
+							</div>
+						</div>
+						<div class="col-sm-6">
+							<div class="form-group">
+								<label class="control-label">Field 6</label>
+								<textarea class="form-control" ng-model="vm.model.field6" name="field6" rows="3" required abf-show-feedback></textarea>
+							</div>
+						</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+		</div>
+
+		<script src="../../node_modules/angular/angular.js"></script>
+		<script src="../../node_modules/angular-messages/angular-messages.js"></script>
+		<script src="app.js" charset="utf-8"></script>
+	</body>
+</html>
